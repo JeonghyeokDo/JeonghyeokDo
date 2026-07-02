@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jeonghyeok Do — VIC Lab, KAIST</title>
+<meta name="description" content="Jeonghyeok Do — Postdoctoral Researcher at KAIST (VIC Lab). Diffusion models, remote sensing (SAR-to-EO translation, pan-sharpening), and skeleton-based action recognition.">
+<meta property="og:title" content="Jeonghyeok Do">
+<meta property="og:description" content="Postdoctoral Researcher, Video and Image Computing Lab (VIC Lab), KAIST">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Serif:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FCFCFB;
+    --ink:#181B20;
+    --muted:#5C626C;
+    --faint:#8A8F98;
+    --hairline:#E5E6E2;
+    --accent:#17539B;
+    --accent-dark:#0E3A70;
+    --badge-bg:#F2F3F0;
+    --serif:"IBM Plex Serif",Georgia,serif;
+    --sans:"IBM Plex Sans",-apple-system,"Segoe UI",sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);text-decoration:none}
+  a:hover{color:var(--accent-dark);text-decoration:underline;text-underline-offset:3px}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
+
+  .wrap{max-width:47rem;margin:0 auto;padding:0 1.375rem}
+
+  /* ---------- header ---------- */
+  header{padding-top:4.5rem;padding-bottom:2.4rem;border-bottom:1px solid var(--hairline)}
+  .id{display:flex;gap:1.75rem;align-items:flex-start}
+  .portrait{
+    width:118px;height:118px;flex:none;
+    border-radius:6px;object-fit:cover;
+    border:1px solid var(--hairline);
+    background:var(--badge-bg);
+  }
+  h1{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:2rem;
+    letter-spacing:-0.01em;
+    line-height:1.15;
+  }
+  .hangul{font-weight:500;color:var(--faint);font-size:1.05rem;margin-left:.5rem;letter-spacing:0}
+  .role{margin-top:.55rem;color:var(--muted);font-size:.95rem;line-height:1.55}
+  .role b{color:var(--ink);font-weight:600}
+  .contact{
+    margin-top:.9rem;
+    font-family:var(--mono);
+    font-size:.8rem;
+    display:flex;flex-wrap:wrap;gap:.35rem .5rem;
+  }
+  .contact a{
+    border:1px solid var(--hairline);
+    border-radius:4px;
+    padding:.22rem .55rem;
+    color:var(--ink);
+    background:#fff;
+  }
+  .contact a:hover{border-color:var(--accent);color:var(--accent);text-decoration:none}
+
+  /* ---------- sections ---------- */
+  main{padding-bottom:5rem}
+  section{margin-top:3.1rem}
+  .sec-head{
+    display:flex;align-items:baseline;gap:.7rem;
+    margin-bottom:1.15rem;
+  }
+  .sec-head::before{
+    content:"";width:11px;height:11px;flex:none;align-self:center;
+    border-left:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  }
+  h2{
+    font-family:var(--serif);font-weight:600;
+    font-size:1.22rem;letter-spacing:-0.005em;
+  }
+  h3{
+    font-family:var(--mono);font-weight:500;font-size:.75rem;
+    letter-spacing:.09em;text-transform:uppercase;color:var(--muted);
+    margin:1.7rem 0 .9rem;
+  }
+  p + p{margin-top:.8rem}
+  .about p{max-width:44rem}
+  .about .kw{color:var(--ink);font-weight:500}
+
+  /* ---------- news ---------- */
+  .news{list-style:none}
+  .news li{
+    display:grid;grid-template-columns:6.2rem 1fr;gap:1rem;
+    padding:.42rem 0;border-bottom:1px dotted var(--hairline);
+    font-size:.925rem;
+  }
+  .news li:last-child{border-bottom:0}
+  .news time{
+    font-family:var(--mono);font-size:.75rem;color:var(--faint);
+    padding-top:.18rem;white-space:nowrap;
+  }
+
+  /* ---------- publications ---------- */
+  .pub{
+    display:grid;grid-template-columns:7.1rem 1fr;gap:1.1rem;
+    padding:1.05rem 0;border-bottom:1px solid var(--hairline);
+  }
+  .pub:last-child{border-bottom:0}
+  .venue{
+    font-family:var(--mono);font-size:.72rem;letter-spacing:.03em;
+    color:var(--ink);
+  }
+  .venue .tag{
+    display:inline-block;background:var(--badge-bg);
+    border:1px solid var(--hairline);border-radius:4px;
+    padding:.14rem .45rem;margin-bottom:.3rem;
+  }
+  .venue .tag.first{border-color:var(--accent);color:var(--accent)}
+  .venue .yr{display:block;color:var(--faint)}
+  .pub .title{
+    font-family:var(--serif);font-weight:600;font-size:1.02rem;
+    line-height:1.4;color:var(--ink);
+  }
+  .pub .title a{color:inherit}
+  .pub .title a:hover{color:var(--accent)}
+  .pub .authors{font-size:.875rem;color:var(--muted);margin-top:.28rem}
+  .pub .authors .me{color:var(--ink);font-weight:600}
+  .pub .links{
+    margin-top:.42rem;font-family:var(--mono);font-size:.72rem;
+    display:flex;flex-wrap:wrap;gap:.3rem .75rem;
+  }
+  .pub .note{font-size:.78rem;color:var(--faint);margin-top:.25rem}
+
+  /* ---------- generic timeline rows ---------- */
+  .rows{list-style:none}
+  .rows li{
+    display:grid;grid-template-columns:10.2rem 1fr;gap:1rem;
+    padding:.5rem 0;font-size:.925rem;
+    border-bottom:1px dotted var(--hairline);
+  }
+  .rows li:last-child{border-bottom:0}
+  .rows time{
+    font-family:var(--mono);font-size:.73rem;color:var(--faint);
+    padding-top:.2rem;white-space:nowrap;
+  }
+  .rows b{font-weight:600}
+  .rows .sub{display:block;color:var(--muted);font-size:.865rem}
+
+  .cols2{display:grid;grid-template-columns:1fr 1fr;gap:0 2.6rem}
+
+  .plain{list-style:none;font-size:.9rem;color:var(--muted)}
+  .plain li{padding:.22rem 0}
+  .plain b{color:var(--ink);font-weight:500}
+
+  footer{
+    border-top:1px solid var(--hairline);
+    padding:1.4rem 0 3rem;
+    font-family:var(--mono);font-size:.72rem;color:var(--faint);
+    display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  }
+
+  @media (max-width:640px){
+    header{padding-top:3rem}
+    .id{gap:1.1rem}
+    .portrait{width:88px;height:88px}
+    h1{font-size:1.6rem}
+    .hangul{display:block;margin:0.15rem 0 0}
+    .news li{grid-template-columns:4.9rem 1fr;gap:.7rem}
+    .pub{grid-template-columns:1fr;gap:.35rem}
+    .venue .yr{display:inline;margin-left:.4rem}
+    .rows li{grid-template-columns:1fr;gap:.1rem}
+    .cols2{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <div class="id">
+    <img class="portrait" src="profile.jpg" alt="Portrait of Jeonghyeok Do"
+         onerror="this.style.display='none'">
+    <div>
+      <h1>Jeonghyeok Do<span class="hangul">도정혁</span></h1>
+      <p class="role">
+        <b>Postdoctoral Researcher</b>, Video and Image Computing Lab (<a href="https://www.viclab.kaist.ac.kr/">VIC Lab</a>), KAIST<br>
+        Principal Investigator, Sejong Science Fellowship (NRF &amp; MSIT)<br>
+        Advisor: Prof. Munchurl Kim
+      </p>
+      <nav class="contact" aria-label="Contact and profile links">
+        <a href="mailto:ehwjdgur0913@kaist.ac.kr">Email</a>
+        <a href="https://scholar.google.com/citations?user=UdowG9gAAAAJ">Google Scholar</a>
+        <a href="https://github.com/KAIST-VICLab">GitHub</a>
+        <a href="https://www.linkedin.com/in/jeonghyeok-do-4aaab8211">LinkedIn</a>
+        <a href="https://www.youtube.com/@dosensei97">YouTube</a>
+        <a href="https://drive.google.com/file/d/1o2eC3w2HPsjBZ4czhZ-49YaRhNlrbwvr/view">CV (PDF)</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="about" id="about">
+    <div class="sec-head"><h2>About</h2></div>
+    <p>
+      I am a postdoctoral researcher at the Video and Image Computing Lab (VIC Lab), KAIST,
+      where I also received my Ph.D. in Electrical Engineering (Aug. 2025) under the supervision of
+      Prof. Munchurl Kim. I currently lead an NRF/MSIT-funded Sejong Science Fellowship project on
+      <span class="kw">AI-based satellite image visualization and analysis</span>.
+    </p>
+    <p>
+      My research centers on <span class="kw">generative models for remote sensing</span> &mdash;
+      SAR-to-EO image translation, PAN-sharpening, and satellite image super-resolution &mdash;
+      and on efficient <span class="kw">skeleton-based action recognition</span>.
+      My current interests extend to <span class="kw">remote sensing foundation models</span>,
+      <span class="kw">skeleton foundation models</span>, and <span class="kw">motion generation</span>.
+    </p>
+  </section>
+
+  <section id="news">
+    <div class="sec-head"><h2>News</h2></div>
+    <ul class="news">
+      <li><time>2026.06</time><span><b>AVSR-Diff</b> accepted to <b>ECCV 2026</b>.</span></li>
+      <li><time>2026.06</time><span><b>C-DiffSET</b> accepted to <b>IEEE TCSVT</b>; code released on <a href="https://github.com/KAIST-VICLab/C-DiffSET">GitHub</a>.</span></li>
+      <li><time>2026.03</time><span>Started as Principal Investigator of the <b>Sejong Science Fellowship</b> (NRF &amp; MSIT).</span></li>
+      <li><time>2026.02</time><span>Invited lecture on multi-modal satellite image fusion at Prof. Jungho Im&rsquo;s Lab, <b>UNIST</b>.</span></li>
+      <li><time>2025.09</time><span>Started as a <b>Postdoctoral Researcher</b> at KAIST.</span></li>
+      <li><time>2025.06</time><span>Two papers (<b>TDSM</b>, <b>PAN-Crafter</b>) accepted to <b>ICCV 2025</b>.</span></li>
+      <li><time>2025.04</time><span>SAR-to-EO image translation technology transferred to <b>Stellarvision</b>.</span></li>
+      <li><time>2025.02</time><span><b>U-Know-DiffPAN</b> accepted to <b>CVPR 2025</b>.</span></li>
+    </ul>
+  </section>
+
+  <section id="publications">
+    <div class="sec-head"><h2>Publications</h2></div>
+
+    <h3>International Conferences &amp; Journals</h3>
+
+    <article class="pub">
+      <div class="venue">
+        <span class="tag">ECCV</span>
+        <span class="yr">2026</span>
+      </div>
+      <div>
+        <p class="title">AVSR-Diff: Scale-Agnostic Diffusion Priors for Temporally Consistent Arbitrary-Scale Video Super-Resolution</p>
+        <p class="authors">Geunhyuk Youk, <span class="me">Jeonghyeok Do</span>, Dayeon Kim, Jihyong Oh&dagger;, Munchurl Kim&dagger;</p>
+        <p class="note">&dagger; Co-corresponding authors &middot; European Conference on Computer Vision, 2026</p>
+      </div>
+    </article>
+
+    <article class="pub">
+      <div class="venue">
+        <span class="tag first">TCSVT</span>
+        <span class="yr">2026</span>
+      </div>
+      <div>
+        <p class="title"><a href="https://ieeexplore.ieee.org/abstract/document/11556318">C-DiffSET: Leveraging Latent Diffusion for SAR-to-EO Image Translation with Confidence-Guided Reliable Object Generation</a></p>
+        <p class="authors"><span class="me">Jeonghyeok Do</span>, Jaehyup Lee, Seungchul Lee, Munchurl Kim</p>
+        <p class="note">IEEE Transactions on Circuits and Systems for Video Technology, 2026</p>
+        <p class="links">
+          <a href="https://ieeexplore.ieee.org/abstract/document/11556318">paper</a>
+          <a href="https://kaist-viclab.github.io/C-DiffSET_site/">project</a>
+          <a href="https://github.com/KAIST-VICLab/C-DiffSET">code</a>
+        </p>
+      </div>
+    </article>
+
+    <article class="pub">
+      <div class="venue">
+        <span class="tag first">ICCV</span>
+        <span class="yr">2025</span>
+      </div>
+      <div>
+        <p class="title"><a href="https://openaccess.thecvf.com/content/ICCV2025/papers/Do_Bridging_the_Skeleton-Text_Modality_Gap_Diffusion-Powered_Modality_Alignment_for_Zero-shot_ICCV_2025_paper.pdf">Bridging the Skeleton-Text Modality Gap: Diffusion-Powered Modality Alignment for Zero-shot Skeleton-based Action Recognition</a></p>
+        <p class="authors"><span class="me">Jeonghyeok Do</span>, Munchurl Kim</p>
+        <p class="note">International Conference on Computer Vision, 2025</p>
+        <p class="links">
+          <a href="https://openaccess.thecvf.com/content/ICCV2025/papers/Do_Bridging_the_Skeleton-Text_Modality_Gap_Diffusion-Powered_Modality_Alignment_for_Zero-shot_ICCV_2025_paper.pdf">paper</a>
+          <a href="https://openaccess.thecvf.com/content/ICCV2025/supplemental/Do_Bridging_the_Skeleton-Text_ICCV_2025_supplemental.pdf">supp</a>
+          <a href="https://kaist-viclab.github.io/TDSM_site/">project</a>
+          <a href="https://github.com/KAIST-VICLab/TDSM">code</a>
+          <a href="https://youtu.be/QD8Kbo6Eh1I">video</a>
+        </p>
+      </div>
+    </article>
+
+    <article class="pub">
+      <div class="venue">
+        <span class="tag first">ICCV</span>
+        <span class="yr">2025</span>
+      </div>
+      <div>
+        <p class="title"><a href="https://openaccess.thecvf.com/content/ICCV2025/papers/Do_PAN-Crafter_Learning_Modality-Consistent_Alignment_for_PAN-Sharpening_ICCV_2025_paper.pdf">PAN-Crafter: Learning Modality-Consistent Alignment for PAN-Sharpening</a></p>
+        <p class="authors"><span class="me">Jeonghyeok Do</span>, Sungpyo Kim, Geunhyuk Youk, Jaehyup Lee&dagger;, Munchurl Kim&dagger;</p>
+        <p class="note">&dagger; Co-corresponding authors &middot; International Conference on Computer Vision, 2025</p>
+        <p class="links">
+          <a href="https://openaccess.thecvf.com/content/ICCV2025/papers/Do_PAN-Crafter_Learning_Modality-Consistent_Alignment_for_PAN-Sharpening_ICCV_2025_paper.pdf">paper</a>
+          <a href="https://openaccess.thecvf.com/content/ICCV2025/supplemental/Do_PAN-Crafter_Learning_Modality-Consistent_ICCV_2025_supplemental.pdf">supp</a>
+          <a href="https://kaist-viclab.github.io/PAN-Crafter_site/">project</a>
+          <a href="https://github.com/KAIST-VICLab/PAN-Crafter">code</a>
+          <a href="https://youtu.be/kQeZz6X5ag8">video</a>
+        </p>
+      </div>
+    </article>
+
+    <article class="pub">
+      <div class="venue">
+        <span class="tag">CVPR</span>
+        <span class="yr">2025</span>
+      </div>
+      <div>
+        <p class="title"><a href="https://openaccess.thecvf.com/content/CVPR2025/papers/Kim_U-Know-DiffPAN_An_Uncertainty-aware_Knowledge_Distillation_Diffusion_Framework_with_Details_Enhancement_CVPR_2025_paper.pdf">U-Know-DiffPAN: An Uncertainty-aware Knowledge Distillation Diffusion Framework with Details Enhancement for PAN-Sharpening</a></p>
+        <p class="authors">Sungpyo Kim, <span class="me">Jeonghyeok Do</span>, Jaehyup Lee&dagger;, Munchurl Kim&dagger;</p>
+        <p class="note">&dagger; Co-corresponding authors &middot; IEEE/CVF Conference on Computer Vision and Pattern Recognition, 2025</p>
+        <p class="links">
+          <a href="https://openaccess.thecvf.com/content/CVPR2025/papers/Kim_U-Know-DiffPAN_An_Uncertainty-aware_Knowledge_Distillation_Diffusion_Framework_with_Details_Enhancement_CVPR_2025_paper.pdf">paper</a>
+          <a href="https://openaccess.thecvf.com/content/CVPR2025/supplemental/Kim_U-Know-DiffPAN_An_Uncertainty-aware_CVPR_2025_supplemental.pdf">supp</a>
+          <a href="https://kaist-viclab.github.io/U-Know-DiffPAN-site/">project</a>
+          <a href="https://github.com/KAIST-VICLab/U-Know-DiffPAN">code</a>
+        </p>
+      </div>
+    </article>
+
+    <article class="pub">
+      <div class="venue">
+        <span class="tag first">ECCV</span>
+        <span class="yr">2024</span>
+      </div>
+      <div>
+        <p class="title"><a href="https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/05796.pdf">SkateFormer: Skeletal-Temporal Transformer for Human Action Recognition</a></p>
+        <p class="authors"><span class="me">Jeonghyeok Do</span>, Munchurl Kim</p>
+        <p class="note">European Conference on Computer Vision, 2024</p>
+        <p class="links">
+          <a href="https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/05796.pdf">paper</a>
+          <a href="https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/05796-supp.pdf">supp</a>
+          <a href="https://kaist-viclab.github.io/SkateFormer_site/">project</a>
+          <a href="https://github.com/KAIST-VICLab/SkateFormer">code</a>
+          <a href="https://www.youtube.com/watch?v=kbYexZ-LfTM">video</a>
+        </p>
+      </div>
+    </article>
+
+    <article class="pub">
+      <div class="venue">
+        <span class="tag first">VCIP</span>
+        <span class="yr">2023</span>
+      </div>
+      <div>
+        <p class="title">MorphVAD: Efficient Video Anomaly Detection Using Morphological Transformation</p>
+        <p class="authors"><span class="me">Jeonghyeok Do</span>, Munchurl Kim</p>
+        <p class="note">IEEE International Conference on Visual Communications and Image Processing, 2023</p>
+      </div>
+    </article>
+
+    <article class="pub">
+      <div class="venue">
+        <span class="tag first">ICCAS</span>
+        <span class="yr">2022</span>
+      </div>
+      <div>
+        <p class="title">Multi-modal Transformer for Indoor Human Action Recognition</p>
+        <p class="authors"><span class="me">Jeonghyeok Do</span>, Munchurl Kim</p>
+        <p class="note">22nd International Conference on Control, Automation and Systems, IEEE, 2022</p>
+      </div>
+    </article>
+
+    <article class="pub">
+      <div class="venue">
+        <span class="tag">IEEE Access</span>
+        <span class="yr">2021</span>
+      </div>
+      <div>
+        <p class="title">Pseudo-Supervised Learning for Semantic Multi-Style Transfer</p>
+        <p class="authors">Saehun Kim, <span class="me">Jeonghyeok Do</span>, Munchurl Kim</p>
+        <p class="note">IEEE Access, vol. 9, pp. 7930&ndash;7942, 2021</p>
+      </div>
+    </article>
+
+    <article class="pub">
+      <div class="venue">
+        <span class="tag">IEEE Access</span>
+        <span class="yr">2020</span>
+      </div>
+      <div>
+        <p class="title">Learning-based JND-directed HDR Video Preprocessing for Perceptually Lossless Compression with HEVC</p>
+        <p class="authors">Sehwan Ki, <span class="me">Jeonghyeok Do</span>, Munchurl Kim</p>
+        <p class="note">IEEE Access, vol. 8, pp. 228605&ndash;228618, 2020</p>
+      </div>
+    </article>
+
+    <article class="pub">
+      <div class="venue">
+        <span class="tag">CVPRW</span>
+        <span class="yr">2020</span>
+      </div>
+      <div>
+        <p class="title">NTIRE 2020 Challenge on NonHomogeneous Dehazing</p>
+        <p class="authors">Codruta O. Ancuti, Cosmin Ancuti, Florin-Alexandru Vasluianu, Radu Timofte, et&nbsp;al. (incl. <span class="me">Jeonghyeok Do</span>)</p>
+        <p class="note">IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops, 2020</p>
+      </div>
+    </article>
+
+    <h3>Preprints</h3>
+
+    <article class="pub">
+      <div class="venue">
+        <span class="tag first">arXiv</span>
+        <span class="yr">2026</span>
+      </div>
+      <div>
+        <p class="title"><a href="https://arxiv.org/abs/2603.10648">Less is More: Decoder-Free Masked Modeling for Efficient Skeleton Representation Learning</a></p>
+        <p class="authors"><span class="me">Jeonghyeok Do</span>, Yun Chen, Geunhyuk Youk, Munchurl Kim</p>
+        <p class="note">arXiv preprint, 2026</p>
+        <p class="links">
+          <a href="https://arxiv.org/abs/2603.10648">arXiv</a>
+          <a href="https://kaist-viclab.github.io/SLiM_site/">project</a>
+          <a href="https://github.com/KAIST-VICLab/SLiM">code</a>
+        </p>
+      </div>
+    </article>
+  </section>
+
+  <section id="experience">
+    <div class="sec-head"><h2>Experience</h2></div>
+    <ul class="rows">
+      <li>
+        <time>2026.03 &ndash; present</time>
+        <span><b>Principal Investigator</b>, Sejong Science Fellowship
+          <span class="sub">AI-based Satellite Image Visualization and Analysis &middot; funded by NRF &amp; MSIT</span></span>
+      </li>
+      <li>
+        <time>2025.09 &ndash; present</time>
+        <span><b>Postdoctoral Researcher</b>, KAIST
+          <span class="sub">Information &amp; Electronics Research Institute &middot; alternative military service</span></span>
+      </li>
+      <li>
+        <time>2019.03 &ndash; 2025.08</time>
+        <span><b>Research Assistant</b>, KAIST
+          <span class="sub">Government- and industry-funded projects: ADD, LG Electronics, SK Hynix, Stellarvision</span></span>
+      </li>
+    </ul>
+  </section>
+
+  <section id="education">
+    <div class="sec-head"><h2>Education</h2></div>
+    <ul class="rows">
+      <li>
+        <time>2021.03 &ndash; 2025.08</time>
+        <span><b>Ph.D.</b>, School of Electrical Engineering, KAIST
+          <span class="sub">Thesis: A Study on Efficient Skeletal-Temporal Transformer for Skeleton-based Action Recognition &middot; Advisor: Prof. Munchurl Kim</span></span>
+      </li>
+      <li>
+        <time>2019.03 &ndash; 2021.02</time>
+        <span><b>M.S.</b>, School of Electrical Engineering, KAIST
+          <span class="sub">Thesis: Effective Labeling on Unlabeled Data for Imbalanced Training Dataset &middot; Advisor: Prof. Munchurl Kim</span></span>
+      </li>
+      <li>
+        <time>2015.03 &ndash; 2019.02</time>
+        <span><b>B.S.</b>, School of Electrical Engineering, KAIST
+          <span class="sub">Double major in Mathematical Sciences &middot; Cum Laude</span></span>
+      </li>
+    </ul>
+  </section>
+
+  <section id="misc">
+    <div class="cols2">
+      <div>
+        <div class="sec-head"><h2>Academic Service</h2></div>
+        <ul class="plain">
+          <li><b>Conference reviewer</b> &mdash; NeurIPS, AAAI, BMVC (2026); ICCV, CVPR (2025); VCIP (2023&ndash;2025)</li>
+          <li><b>Journal reviewer</b> &mdash; IJCV, IEEE TIP, TNNLS, TMM, ACM TOMM</li>
+        </ul>
+        <div class="sec-head" style="margin-top:2.2rem"><h2>Invited Talks</h2></div>
+        <ul class="plain">
+          <li><b>Deep Learning-based Multi-modal Satellite Image Fusion</b><br>Prof. Jungho Im&rsquo;s Lab, UNIST &middot; Feb. 2026</li>
+        </ul>
+      </div>
+      <div>
+        <div class="sec-head"><h2>Honors &amp; Awards</h2></div>
+        <ul class="plain">
+          <li><b>Government Scholarship</b> for Ph.D. students, 2021&ndash;2025</li>
+          <li><b>KAIST Scholarship</b> for M.S. students, 2019&ndash;2021</li>
+          <li><b>National Scholarship</b> for undergraduates, 2015&ndash;2019</li>
+          <li><b>KAIST President Award</b>, 2015</li>
+        </ul>
+        <div class="sec-head" style="margin-top:2.2rem"><h2>Technology Transfer</h2></div>
+        <ul class="plain">
+          <li><b>Generative AI-based SAR-to-EO Image Translation</b><br>transferred to Stellarvision &middot; Apr. 2025</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <span>&copy; 2026 Jeonghyeok Do</span>
+  <span>Video and Image Computing Lab &middot; KAIST &middot; Daejeon, Korea</span>
+</footer>
+
+</body>
+</html>
