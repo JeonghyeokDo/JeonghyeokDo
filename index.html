@@ -43,10 +43,10 @@
   .wrap{max-width:47rem;margin:0 auto;padding:0 1.375rem}
 
   /* ---------- header ---------- */
-  header{padding-top:4.5rem;padding-bottom:2.4rem;border-bottom:1px solid var(--hairline)}
+  header.wrap{padding-top:4.5rem;padding-bottom:2.4rem;border-bottom:1px solid var(--hairline)}
   .id{display:flex;gap:1.75rem;align-items:flex-start}
   .portrait{
-    width:118px;height:118px;flex:none;
+    width:112px;height:140px;flex:none;
     border-radius:6px;object-fit:cover;
     border:1px solid var(--hairline);
     background:var(--badge-bg);
@@ -173,9 +173,9 @@
   }
 
   @media (max-width:640px){
-    header{padding-top:3rem}
+    header.wrap{padding-top:3rem;padding-bottom:1.8rem}
     .id{gap:1.1rem}
-    .portrait{width:88px;height:88px}
+    .portrait{width:84px;height:105px}
     h1{font-size:1.6rem}
     .hangul{display:block;margin:0.15rem 0 0}
     .news li{grid-template-columns:4.9rem 1fr;gap:.7rem}
